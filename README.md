@@ -1,4 +1,4 @@
-# Leetcode Problems
+# LeetCode Problems
 _My LeetCode problem solutions_
 ___
 The currently worked on problem is in the project root directory.
