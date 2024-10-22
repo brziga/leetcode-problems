@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/description/
+
 class Solution:
     def split(self, s: str, hm: set) -> int:
         if not s:
