@@ -37,3 +37,23 @@ for file in solution.py testcases.txt; do
 done
 
 echo "Operation completed."
+
+
+# Output file path
+output_file="num_solved_problems.txt"
+
+# Count directories with names that are numbers
+count=0
+
+# Loop through all directories in the current folder
+for dir in */ ; do
+    # Check if the directory name is a number (using regular expression)
+    if [[ ${dir%/} =~ ^[0-9]+$ ]]; then
+        ((count++))
+    fi
+done
+
+# Write the count to the output file, overwriting if it already exists
+echo "$count" > "$output_file"
+
+echo "Count has been written to $output_file"

@@ -39,4 +39,29 @@ for %%f in (solution.py testcases.txt) do (
 
 echo Operation completed.
 
+
+:: Set the constant to subtract
+:: This is the number of extra non-problem directories
+:: (since checking the names and counting only numeric ones doesn't seem to want to happen...)
+set SUBTRACT_CONSTANT=3
+
+:: Output file path
+set output_file=num_solved_problems.txt
+
+:: Initialize counter
+set count=0
+
+:: Loop through all directories in the current folder
+for /d %%d in (*) do (
+    set /a count+=1
+)
+
+:: Subtract the constant from the count
+set /a result=count-%SUBTRACT_CONSTANT%
+
+:: Write the result to the output file, overwriting if it exists
+echo %result% > %output_file%
+
+echo Count has been written to %output_file%
+
 endlocal
