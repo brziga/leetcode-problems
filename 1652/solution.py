@@ -2,12 +2,14 @@
 
 class Solution:
     def decrypt(self, code: List[int], k: int) -> List[int]:
-        cc = code + code
-        for i in range(len(code)):
-            if k > 0:
-                code[i] = sum(cc[i+1:i+k+1])
-            elif k < 0:
-                code[i] = sum(cc[i + len(code) + k:i + len(code)])
-            else:
-                code[i] = 0
-        return code
+        n = len(code)
+        result = [0] * n
+        if k > 0:
+            rnge = range(1, k + 1)
+        elif k < 0:
+            rnge = range(k, 0)
+        else:
+            return result
+        for i in range(n):
+            result[i] = sum(code[(i + j) % n] for j in rnge)
+        return result
